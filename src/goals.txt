@@ -1,0 +1,6 @@
+1. Responsive on all browsers
+2. Top 3 sales persons in a table based on revenue and also based on number of items sold
+3. The number of units sold per month in a chart
+4. It would be a nice feature, to have a customer filter next to the chart designed as above, so that I
+can check the number of units sold for a specific customer individually.
+5. Logo on the dashboard
