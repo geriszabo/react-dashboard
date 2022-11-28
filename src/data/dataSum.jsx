@@ -1,6 +1,7 @@
+import { useDebugValue } from "react";
 import data from "./data.json"
 
-const { Salesperson: salesperson, Orders: orders, Products: products } = data;
+export const { Salesperson: salesperson, Orders: orders, Products: products } = data;
 
 export let dataSum = []
 
@@ -21,7 +22,7 @@ for (let i = 0; i < orders.length; i++) {
               productName: products[z]["Product Name"],
               unitPrice: products[z]["Unit price"],
               currency: products[z]["Currency"],
-              orderPrice: products[z]["Unit price"] * orders[i]["Number of product sold"],
+              orderValue: products[z]["Unit price"] * orders[i]["Number of product sold"],
               accountType: orders[i]["Account type"]
             });
           }
@@ -29,3 +30,32 @@ for (let i = 0; i < orders.length; i++) {
       }
     }
   }
+
+// const newArray = orders.reduce((acc, val, arr) => {
+//   products.forEach( (product, idx) => {
+//     // console.log(product["Product Id"], idx
+//     // console.log(typeof product["Product Id"])
+//     // console.log(typeof acc["Product Id"])
+//     if(acc["Product Id"] == product["Product Id"]) {
+//       val["Product Id"] = {...product}
+//       console.log("fasz")
+//     }
+//   })
+// })
+
+// let newArray = orders.map((order, idx, arr) => {
+//   products.map(element => {
+//     if(element["Product Id"] === order["Product Id"]) {
+//      dataSum.push({...element, ...order})
+//     }
+//   });
+//   salesperson.map(salesPerson => {
+//     if(salesPerson["Id"] === order["Salesperson ID"]) {
+//       dataSum.push({...order, ...salesPerson})
+//     }
+//   })
+// })
+
+
+
+
