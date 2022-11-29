@@ -20,7 +20,7 @@ for (let i = 0; i < orders.length; i++) {
               account: orders[i]["Account"],
               date: orders[i]["Order date"],
               productName: products[z]["Product Name"],
-              unitPrice: products[z]["Unit price"],
+              unitPrice: (products[z]["Unit price"]),
               currency: products[z]["Currency"],
               orderValue: products[z]["Unit price"] * orders[i]["Number of product sold"],
               accountType: orders[i]["Account type"],
