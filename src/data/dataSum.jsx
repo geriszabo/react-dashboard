@@ -23,7 +23,10 @@ for (let i = 0; i < orders.length; i++) {
               unitPrice: products[z]["Unit price"],
               currency: products[z]["Currency"],
               orderValue: products[z]["Unit price"] * orders[i]["Number of product sold"],
-              accountType: orders[i]["Account type"]
+              accountType: orders[i]["Account type"],
+              dateYear: +orders[i]["Order date"].split("/")[2],
+              dateMonth: +orders[i]["Order date"].split("/")[0],
+              dateDay: +orders[i]["Order date"].split("/")[1]
             });
           }
         }

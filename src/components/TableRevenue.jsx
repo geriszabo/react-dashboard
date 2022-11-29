@@ -17,6 +17,9 @@ let revenuesSorted = Object.entries(revenues).sort((a,b) => b[1] - a[1]).reduce(
 
 function TableRevenue() {
   return (
+    <>
+    
+    <h4>Yearly Revenue</h4>
     <Table striped bordered hover>
       <thead>
         <tr>
@@ -38,6 +41,7 @@ function TableRevenue() {
         ))}
       </tbody>
     </Table>
+    </>
   );
 }
 

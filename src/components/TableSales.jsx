@@ -16,6 +16,8 @@ let soldQuantitiesSorted = Object.entries(soldQuantities).sort((a,b) => b[1] - a
 
 function TableSales() {
   return (
+    <>
+    <h4>Items Sold</h4>
     <Table striped bordered hover>
       <thead>
         <tr>
@@ -37,6 +39,7 @@ function TableSales() {
         ))}
       </tbody>
     </Table>
+    </>
   );
 }
 
