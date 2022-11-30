@@ -10,7 +10,7 @@ import { Container } from "react-bootstrap";
 
 function App() {
   return (
-    <div>
+    <div className="bg-dark">
       <NavBar></NavBar>
       <Container className="vh-100">
         <Routes>
