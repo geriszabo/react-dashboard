@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { dataSum } from "../data/dataSum";
 import { Card } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { AppContext } from "../App";
 
 let cardsInfo = dataSum.reduce(
   (obj, order) => {
@@ -30,25 +31,30 @@ let cardsInfo = dataSum.reduce(
   }
 );
 
-console.log(cardsInfo);
-
 export default function Stats() {
+  const { darkModeOn } = useContext(AppContext);
+
   return (
     <Container
       fluid
-      className="text-center justify-content-center align-items-center"
-    
+      className={`text-center justify-content-center align-items-center ${
+        darkModeOn && "bg-dark"
+      }`}
+      style={{ color: `${darkModeOn ? "lightgray" : "black"}` }}
     >
       <Row>
         <Col className="d-flex justify-content-center mb-5">
           <Card
             style={{ width: "18rem", height: "12rem" }}
-            className="border-0 shadow"
+            className={`border-0 shadow ${darkModeOn && "bg-dark"}`}
           >
             <Card.Header
               style={{
-                background:
-                  "linear-gradient(130deg, mediumaquamarine, paleturquoise)",
+                background: `linear-gradient(130deg, ${
+                  darkModeOn
+                    ? "darkseagreen, slategray"
+                    : "mediumaquamarine, paleturquoise"
+                }  )`,
               }}
             >
               Staff
@@ -65,12 +71,15 @@ export default function Stats() {
         <Col className="d-flex justify-content-center mb-5">
           <Card
             style={{ width: "18rem", height: "12rem" }}
-            className="border-0 shadow"
+            className={`border-0 shadow ${darkModeOn && "bg-dark"}`}
           >
             <Card.Header
               style={{
-                background:
-                  "linear-gradient(130deg, mediumaquamarine, paleturquoise)",
+                background: `linear-gradient(130deg, ${
+                  darkModeOn
+                    ? "darkseagreen, slategray"
+                    : "mediumaquamarine, paleturquoise"
+                }  )`,
               }}
             >
               Orders
@@ -89,12 +98,15 @@ export default function Stats() {
         <Col className="d-flex justify-content-center mb-5">
           <Card
             style={{ width: "18rem", height: "12rem" }}
-            className="border-0 shadow"
+            className={`border-0 shadow ${darkModeOn && "bg-dark"}`}
           >
             <Card.Header
               style={{
-                background:
-                  "linear-gradient(130deg, mediumaquamarine, paleturquoise)",
+                background: `linear-gradient(130deg, ${
+                  darkModeOn
+                    ? "darkseagreen, slategray"
+                    : "mediumaquamarine, paleturquoise"
+                }  )`,
               }}
             >
               Orders
@@ -115,12 +127,15 @@ export default function Stats() {
         <Col className="d-flex justify-content-center mb-5">
           <Card
             style={{ width: "18rem", height: "12rem" }}
-            className="border-0 shadow"
+            className={`border-0 shadow ${darkModeOn && "bg-dark"}`}
           >
             <Card.Header
               style={{
-                background:
-                  "linear-gradient(130deg, mediumaquamarine, paleturquoise)",
+                background: `linear-gradient(130deg, ${
+                  darkModeOn
+                    ? "darkseagreen, slategray"
+                    : "mediumaquamarine, paleturquoise"
+                }  )`,
               }}
             >
               Product

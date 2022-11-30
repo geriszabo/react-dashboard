@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { dataSum } from "../data/dataSum";
-import { Colors } from "chart.js";
+import { Colors, plugins } from "chart.js";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
+import {AppContext} from "../App"
 
 Chart.register(Colors);
 
 export function Diagram() {
   const [customerFilter, setCustomerFilter] = useState("All");
+  // Will be used for the second filter
   const [orderStatusFilter, setOrderStatusFilter] = useState("All");
+
+
+  const {darkModeOn} = useContext(AppContext)
 
   let monthlySales;
 
@@ -39,8 +44,6 @@ export function Diagram() {
     }, {});
   }
 
-  
-
   return (
     <div>
       <DropdownButton
@@ -48,7 +51,6 @@ export function Diagram() {
         size="sm"
         title="Filter By"
         className="float-end"
-       
       >
         <Dropdown.Item onClick={() => setCustomerFilter("All")}>
           All
@@ -61,7 +63,7 @@ export function Diagram() {
             </Dropdown.Item>
           ))}
       </DropdownButton>
-      
+
       {/* Button for second filter */}
 
       {/* <DropdownButton
@@ -96,9 +98,15 @@ export function Diagram() {
               id: 1,
               label: "",
               data: Object.values(monthlySales),
+              backgroundColor: "#B6E2D3",
+              
+              
             },
           ],
         }}
+        
+        style={{backgroundColor: `${darkModeOn ? "#333333" : ""}`, color: `${darkModeOn ? "white" : "black"}`}}
+       
       ></Bar>
     </div>
   );

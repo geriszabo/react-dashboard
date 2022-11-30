@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, createContext } from "react";
 import { Home } from "./pages/Home";
 import { BarChart } from "./pages/BarChart";
 import { NavBar } from "./components/Navbar";
@@ -8,20 +8,26 @@ import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 
+export const AppContext = createContext();
+
 function App() {
+  const [darkModeOn, setDarkModeOn] = useState(false);
+
   return (
-    <div className="bg-dark">
-      <NavBar></NavBar>
-      <Container className="vh-100">
-        <Routes>
-          <Route
-            path="/barchart"
-            element={<BarChart dataSum={dataSum}></BarChart>}
-          ></Route>
-          <Route path="/table" element={<Table></Table>}></Route>
-          <Route path="/" element={<Home></Home>}></Route>
-        </Routes>
-      </Container>
+    <div className={`bg-${darkModeOn ? "dark" : "light"}`}>
+      <AppContext.Provider value={{ darkModeOn, setDarkModeOn }}>
+        <NavBar></NavBar>
+        <Container className="vh-100">
+          <Routes>
+            <Route
+              path="/barchart"
+              element={<BarChart dataSum={dataSum}></BarChart>}
+            ></Route>
+            <Route path="/table" element={<Table></Table>}></Route>
+            <Route path="/" element={<Home></Home>}></Route>
+          </Routes>
+        </Container>
+      </AppContext.Provider>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import Table from "react-bootstrap/Table";
 import { dataSum, salesperson } from "../data/dataSum";
+import React, {useContext} from "react"
+import { AppContext } from "../App";
 
 let soldQuantities = dataSum.reduce((obj, order) => {
   if (!obj[order.salespersonName]) {
@@ -16,9 +18,11 @@ let soldQuantitiesSorted = Object.entries(soldQuantities).sort(
 );
 
 function TableSales() {
+ const {darkModeOn} = useContext(AppContext)
+
   return (
     <>
-      <Table striped bordered hover>
+      <Table striped bordered hover variant={darkModeOn && "dark"}>
         <thead>
           <tr>
             <th>#</th>
