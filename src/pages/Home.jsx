@@ -1,8 +1,11 @@
 import React from 'react'
+import Stats from '../components/Stats'
 
 export function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Stats></Stats>
+    </div>
   )
 }
 

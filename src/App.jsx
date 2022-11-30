@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <NavBar></NavBar>
-      <Container>
+      <Container className="vh-100">
         <Routes>
           <Route
             path="/barchart"

@@ -3,13 +3,14 @@ import { NavLink, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Form from "react-bootstrap/Form";
 
 export function NavBar() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <Navbar
-      bg="light"
+      variant="light"
       expand="lg"
       collapseOnSelect="true"
       expanded={isExpanded}
@@ -17,18 +18,20 @@ export function NavBar() {
       onBlur={() => setIsExpanded(false)}
       className="shadow-sm mb-3 "
     >
-      <Container>
-        <Navbar.Brand href="#">
-          <img
-            src="/src/imgs/logo.png"
-            width="60%"
-            className="d-inline-block align-top"
-            alt="React Bootstrap logo"
-          />
-        </Navbar.Brand>
+      <Container className="me-auto ms-auto">
+        <img
+          src="/src/imgs/logo.png"
+          maxwidth="10rem"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+          // style={{ filter: "drop-shadow(0 0mm 4mm white)" }}
+        />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse
+          className="text-center"
+          id="basic-navbar-nav d-flex justify-content-center"
+        >
+          <Nav className="me-auto ms-auto">
             <Nav.Link as={NavLink} to="/">
               Home
             </Nav.Link>
@@ -40,6 +43,9 @@ export function NavBar() {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <Form>
+          <Form.Check type="switch" id="custom-switch" label="Dark-Mode" />
+        </Form>
       </Container>
     </Navbar>
   );
