@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import TableRevenue from "../components/TableRevenue";
 import TableSales from "../components/TableSales";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
+import App, { AppContext } from "../App";
 
 export function Table() {
   const [showRevenue, setShowRevenue] = useState(true);
 
+  const {darkModeOn} = useContext(AppContext)
+
   return (
-    <div>
+    <div className={darkModeOn ? "text-light" : "text-dark"}>
       <DropdownButton
         as={ButtonGroup}
         size="sm"

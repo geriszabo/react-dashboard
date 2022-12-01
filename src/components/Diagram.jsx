@@ -67,7 +67,7 @@ export function Diagram() {
           ))}
       </DropdownButton>
 
-      <h5>Customer: {customerFilter}</h5>
+      <h5 className={darkModeOn ? "text-light" : "text-dark"}>Customer: {customerFilter}</h5>
       <Bar
         datasetIdKey="id"
         data={{
