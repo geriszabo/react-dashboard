@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import { AppContext } from "../App";
 
+
 export function NavBar() {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -29,7 +30,7 @@ export function NavBar() {
           src="/src/imgs/logo.png"
           maxwidth="10rem"
           className="d-inline-block align-top"
-          alt="React Bootstrap logo"
+          alt="Awesomepharma logo"
           style={{ filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}` }}
         />
         <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={() => setIsExpanded((prev) => !prev)}/>
