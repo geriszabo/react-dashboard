@@ -18,13 +18,13 @@ let soldQuantitiesSorted = Object.entries(soldQuantities).sort(
 );
 
 function TableSales() {
- const {darkModeOn} = useContext(AppContext)
+ const {darkModeOn, colorTheme} = useContext(AppContext)
 
   return (
     <>
       <Table striped bordered hover variant={darkModeOn && "dark"}>
         <thead>
-          <tr>
+          <tr >
             <th>#</th>
             <th>First Name</th>
             <th>Last Name</th>

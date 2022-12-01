@@ -10,12 +10,27 @@ import { Container } from "react-bootstrap";
 
 export const AppContext = createContext();
 
+const colorTheme = {
+  dark: {
+    gradient: "linear-gradient(to right, #26ab2f, #98e063)",
+    font: "lightgray",
+    header: "black",
+    chart: "#19f02f",
+  },
+  light: {
+    gradient: "linear-gradient(to right, mediumaquamarine, paleturquoise)",
+    font: "black",
+    header: "black",
+    chart: "#B6E2D3",
+  },
+};
+
 function App() {
   const [darkModeOn, setDarkModeOn] = useState(false);
 
   return (
     <div className={`bg-${darkModeOn ? "dark" : "light"}`}>
-      <AppContext.Provider value={{ darkModeOn, setDarkModeOn }}>
+      <AppContext.Provider value={{ darkModeOn, setDarkModeOn, colorTheme }}>
         <NavBar></NavBar>
         <Container className="vh-100">
           <Routes>

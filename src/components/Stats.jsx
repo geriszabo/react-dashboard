@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { AppContext } from "../App";
 
+
 let cardsInfo = dataSum.reduce(
   (obj, order) => {
     const { salespersonName, unitPrice, productName, quantitySold } = order;
@@ -32,15 +33,24 @@ let cardsInfo = dataSum.reduce(
 );
 
 export default function Stats() {
-  const { darkModeOn } = useContext(AppContext);
+  const { darkModeOn, colorTheme } = useContext(AppContext);
+
+  const cardStyle = {
+    background: darkModeOn
+      ? colorTheme.dark.gradient
+      : colorTheme.light.gradient,
+    colorHeader: colorTheme.dark.header,
+  };
 
   return (
     <Container
       fluid
-      className={`text-center justify-content-center align-items-center ${
+      className={`justify-content-center align-items-center ${
         darkModeOn && "bg-dark"
       }`}
-      style={{ color: `${darkModeOn ? "lightgray" : "black"}` }}
+      style={{
+        color: darkModeOn ? colorTheme.dark.font : colorTheme.light.font,
+      }}
     >
       <Row className="d-flex justify-content-around">
         <Col className="d-flex justify-content-center mb-5">
@@ -50,14 +60,11 @@ export default function Stats() {
           >
             <Card.Header
               style={{
-                background: `linear-gradient(130deg, ${
-                  darkModeOn
-                    ? "darkseagreen, slategray"
-                    : "mediumaquamarine, paleturquoise"
-                }  )`,
+                background: cardStyle.background,
+                color: cardStyle.colorHeader,
               }}
             >
-              Staff
+              Staff 
             </Card.Header>
             <Card.Body>
               <Card.Title> Staff Count </Card.Title>
@@ -75,11 +82,8 @@ export default function Stats() {
           >
             <Card.Header
               style={{
-                background: `linear-gradient(130deg, ${
-                  darkModeOn
-                    ? "darkseagreen, slategray"
-                    : "mediumaquamarine, paleturquoise"
-                }  )`,
+                background: cardStyle.background,
+                color: cardStyle.colorHeader,
               }}
             >
               Orders
@@ -102,11 +106,8 @@ export default function Stats() {
           >
             <Card.Header
               style={{
-                background: `linear-gradient(130deg, ${
-                  darkModeOn
-                    ? "darkseagreen, slategray"
-                    : "mediumaquamarine, paleturquoise"
-                }  )`,
+                background: cardStyle.background,
+                color: cardStyle.colorHeader,
               }}
             >
               Orders
@@ -131,11 +132,8 @@ export default function Stats() {
           >
             <Card.Header
               style={{
-                background: `linear-gradient(130deg, ${
-                  darkModeOn
-                    ? "darkseagreen, slategray"
-                    : "mediumaquamarine, paleturquoise"
-                }  )`,
+                background: cardStyle.background,
+                color: cardStyle.colorHeader,
               }}
             >
               Product

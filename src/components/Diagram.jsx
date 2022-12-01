@@ -17,7 +17,7 @@ export function Diagram() {
   // Will be used for the second filter
   const [orderStatusFilter, setOrderStatusFilter] = useState("All");
 
-  const { darkModeOn } = useContext(AppContext);
+  const { darkModeOn, colorTheme } = useContext(AppContext);
 
   let monthlySales;
 
@@ -77,7 +77,7 @@ export function Diagram() {
               id: 1,
               label: "Pieces Sold",
               data: Object.values(monthlySales),
-              backgroundColor: "#B6E2D3",
+              backgroundColor: darkModeOn ? colorTheme.dark.chart : colorTheme.light.chart,
             },
           ],
         }}
