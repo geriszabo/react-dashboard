@@ -44,6 +44,8 @@ export function Diagram() {
     }, {});
   }
 
+  console.log(monthlySales)
+
   return (
     <div>
       <DropdownButton
