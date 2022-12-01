@@ -98,7 +98,7 @@ export function Diagram() {
           datasets: [
             {
               id: 1,
-              label: "",
+              label: "Pieces Sold",
               data: Object.values(monthlySales),
               backgroundColor: "#B6E2D3",
               
@@ -107,7 +107,7 @@ export function Diagram() {
           ],
         }}
         
-        style={{backgroundColor: `${darkModeOn ? "#333333" : ""}`, color: `${darkModeOn ? "white" : "black"}`}}
+        style={{backgroundColor: `${darkModeOn ? "#333333" : ""}`, color: `${darkModeOn ? "white" : "black"}`, maxHeight: "60vh"}}
        
       ></Bar>
     </div>
