@@ -42,7 +42,7 @@ export default function Stats() {
       }`}
       style={{ color: `${darkModeOn ? "lightgray" : "black"}` }}
     >
-      <Row>
+      <Row className="d-flex justify-content-around">
         <Col className="d-flex justify-content-center mb-5">
           <Card
             style={{ width: "18rem", height: "12rem" }}
@@ -94,7 +94,7 @@ export default function Stats() {
           </Card>
         </Col>
       </Row>
-      <Row>
+      <Row className="d-flex justify-content-around">
         <Col className="d-flex justify-content-center mb-5">
           <Card
             style={{ width: "18rem", height: "12rem" }}
