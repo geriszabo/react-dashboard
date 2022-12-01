@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import { AppContext } from "../App";
+import logo from "../imgs/logo.png"
 
 
 export function NavBar() {
@@ -27,7 +28,7 @@ export function NavBar() {
     >
       <Container className="me-auto ms-auto">
         <img
-          src="/src/imgs/logo.png"
+          src={logo}
           maxwidth="10rem"
           className="d-inline-block align-top"
           alt="Awesomepharma logo"
