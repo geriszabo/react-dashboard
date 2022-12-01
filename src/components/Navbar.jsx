@@ -19,7 +19,7 @@ export function NavBar() {
       expand="lg"
       collapseOnSelect="true"
       expanded={isExpanded}
-      onClick={() => setIsExpanded((prev) => !prev)}
+     
       onBlur={() => setIsExpanded(false)}
       className={`shadow-sm mb-3 ${darkModeOn && "bg-black"}`}
 
@@ -32,7 +32,7 @@ export function NavBar() {
           alt="React Bootstrap logo"
           style={{ filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}` }}
         />
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={() => setIsExpanded((prev) => !prev)}/>
         <Navbar.Collapse
           className="text-center"
           id="basic-navbar-nav d-flex justify-content-center"
@@ -49,12 +49,12 @@ export function NavBar() {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <Form>
+      </Container>
+        <Form className="me-4">
           <Form.Check type="switch" id="custom-switch" label="Dark-Mode" onClick={() => setDarkModeOn(prev => !prev)}/>
         </Form>
-      </Container>
     </Navbar>
   );
 }
 
-// export default BasicExample;
+
