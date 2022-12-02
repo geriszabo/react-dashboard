@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { AppContext } from "../App";
-
+import { Element } from "chart.js";
 
 let cardsInfo = dataSum.reduce(
   (obj, order) => {
@@ -64,7 +64,28 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              Staff 
+              Staff
+            </Card.Header>
+            <Card.Body>
+              <Card.Title> Staff Count </Card.Title>
+              <Card.Text>`You have ${
+          Object.keys(cardsInfo.staff).length
+        } people working in your sales team.`</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col className="d-flex justify-content-center mb-5">
+          <Card
+            style={{ width: "18rem", height: "12rem" }}
+            className={`border-0 shadow ${darkModeOn && "bg-dark"}`}
+          >
+            <Card.Header
+              style={{
+                background: cardStyle.background,
+                color: cardStyle.colorHeader,
+              }}
+            >
+              Staff
             </Card.Header>
             <Card.Body>
               <Card.Title> Staff Count </Card.Title>

@@ -8,14 +8,23 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
 import { AppContext } from "../App";
 
-
-const MONTHS = ["Jan", "Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dez",]
-
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dez",
+];
 
 export function Diagram() {
   const [customerFilter, setCustomerFilter] = useState("All");
-  // Will be used for the second filter
-  const [orderStatusFilter, setOrderStatusFilter] = useState("All");
 
   const { darkModeOn, colorTheme } = useContext(AppContext);
 
@@ -45,7 +54,6 @@ export function Diagram() {
     }, {});
   }
 
-  console.log(monthlySales);
 
   return (
     <div>
@@ -67,17 +75,32 @@ export function Diagram() {
           ))}
       </DropdownButton>
 
-      <h5 className={darkModeOn ? "text-light" : "text-dark"}>Customer: {customerFilter}</h5>
+      <h5 className={darkModeOn ? "text-light" : "text-dark"}>
+        Customer: {customerFilter}
+      </h5>
       <Bar
         datasetIdKey="id"
         data={{
-          labels: Object.keys(monthlySales).map((e) => MONTHS[e-1]),
+          labels: MONTHS,
           datasets: [
             {
               id: 1,
               label: "Pieces Sold",
-              data: Object.values(monthlySales),
-              backgroundColor: darkModeOn ? colorTheme.dark.chart : colorTheme.light.chart,
+              data: Object.values({  1: 0,
+                2: 0,
+                3: 0,
+                4: 0,
+                5: 0,
+                6: 0,
+                7: 0,
+                8: 0,
+                9: 0,
+                10: 0,
+                11: 0,
+                12: 0, ...monthlySales}),
+              backgroundColor: darkModeOn
+                ? colorTheme.dark.chart
+                : colorTheme.light.chart,
             },
           ],
         }}

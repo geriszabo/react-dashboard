@@ -12,7 +12,7 @@ export const AppContext = createContext();
 
 const colorTheme = {
   dark: {
-    gradient: "linear-gradient(to right, #26ab2f, #98e063)",
+    gradient: "linear-gradient(0.1turn, #26ab2f, #98e063)",
     font: "lightgray",
     header: "black",
     chart: "#19f02f",
@@ -24,6 +24,8 @@ const colorTheme = {
     chart: "#B6E2D3",
   },
 };
+
+
 
 function App() {
   const [darkModeOn, setDarkModeOn] = useState(false);
