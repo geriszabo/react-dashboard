@@ -7,21 +7,9 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
 import { AppContext } from "../App";
+import { MONTHS } from "../data/helpers";
 
-const MONTHS = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dez",
-];
+
 
 export function Diagram() {
   const [customerFilter, setCustomerFilter] = useState("All");

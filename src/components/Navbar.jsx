@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -58,8 +58,7 @@ export function NavBar() {
         </Navbar.Collapse>
       </Container>
       <Form className="me-4">
-        <Form.Check
-          type="switch"
+        <Form.Switch
           id="custom-switch"
           label={darkModeOn ? "🌜" : "🌞"}
           onClick={() => setDarkModeOn((prev) => !prev)}

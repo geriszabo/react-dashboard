@@ -1,36 +1,14 @@
 import React, { useContext } from "react";
-import { dataSum } from "../data/dataSum";
 import { Card } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { AppContext } from "../App";
-import { Element } from "chart.js";
-
-let cardsInfo = dataSum.reduce(
-  (obj, order) => {
-    const { salespersonName, unitPrice, productName, quantitySold } = order;
-    obj.orders += 1;
-    obj.ordersValue += unitPrice * quantitySold;
-    if (!obj.staff[salespersonName]) {
-      obj.staff[salespersonName] = quantitySold;
-    } else {
-      obj.staff[salespersonName] += quantitySold;
-    }
-    if (!obj.bestSeller[productName])
-      obj.bestSeller[productName] = quantitySold;
-    else {
-      obj.bestSeller[productName] += quantitySold;
-    }
-    return obj;
-  },
-  {
-    staff: [],
-    orders: 0,
-    ordersValue: 0,
-    bestSeller: [],
-  }
-);
+import { cardsInfo } from "../data/helpers";
+//For charts
+import { Line } from "react-chartjs-2";
+import { stockGenerator } from "../data/helpers";
+import { elements } from "chart.js";
 
 export default function Stats() {
   const { darkModeOn, colorTheme } = useContext(AppContext);
@@ -67,10 +45,44 @@ export default function Stats() {
               Staff
             </Card.Header>
             <Card.Body>
-              <Card.Title> Staff Count </Card.Title>
-              <Card.Text>`You have ${
-          Object.keys(cardsInfo.staff).length
-        } people working in your sales team.`</Card.Text>
+              {/* <Card.Title> Staff Count </Card.Title> */}
+              <Card.Text>
+                <Line
+                  datasetIdKey="id"
+                  data={{
+                    labels: Array(8).fill(""),
+                    datasets: [
+                      {
+                        id: 1,
+                        label: "Pieces Sold",
+                        data: stockGenerator(8),
+                        backgroundColor: darkModeOn
+                          ? colorTheme.dark.chart
+                          : colorTheme.light.chart,
+                          borderColor: darkModeOn
+                          ? colorTheme.dark.chart
+                          : colorTheme.light.chart,
+                          borderWidth: 3,
+                          
+                          // borderCapStyle: "round",
+                          // fill: true
+                      },
+                    ],
+                  }}
+                  style={{
+                    backgroundColor: `${darkModeOn ? "#333333" : ""}`,
+                    color: `${darkModeOn ? "white" : "black"}`,
+                    // maxHeight: "60vh",
+                  }}
+                  options={{
+                    elements: {
+                      line: {
+                        tension: 0.5
+                      }
+                    }}
+                  }
+                ></Line>
+              </Card.Text>
             </Card.Body>
           </Card>
         </Col>
