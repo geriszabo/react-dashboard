@@ -43,9 +43,10 @@ export default function Stats() {
   };
 
   return (
-    <Container
+    <div
+    
       fluid
-      className={`justify-content-center align-items-center ${
+      className={`justify-content-center align-items-center  ${
         darkModeOn && "bg-dark"
       }`}
       style={{
@@ -220,6 +221,6 @@ export default function Stats() {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
