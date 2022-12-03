@@ -10,16 +10,15 @@ import { Line } from "react-chartjs-2";
 import { stockGenerator2 } from "../data/helpers";
 import { elements } from "chart.js";
 //Icons
-import {BiLineChart} from "react-icons/bi"
-import {CgPill} from "react-icons/cg"
-import {BsClipboardCheck, BsPeople} from "react-icons/bs"
+import { BiLineChart } from "react-icons/bi";
+import { CgPill } from "react-icons/cg";
+import { BsClipboardCheck, BsPeople } from "react-icons/bs";
 
 export default function Stats() {
   const { darkModeOn, colorTheme } = useContext(AppContext);
   const [stockData, setStockData] = useState([]);
 
   let arr = [];
-
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -44,7 +43,6 @@ export default function Stats() {
 
   return (
     <div
-    
       fluid
       className={`justify-content-center align-items-center  ${
         darkModeOn && "bg-dark"
@@ -65,9 +63,9 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-             <Card.Title>
-             Stock <BiLineChart></BiLineChart>  
-               </Card.Title> 
+              <Card.Title>
+                Stock <BiLineChart></BiLineChart>
+              </Card.Title>
             </Card.Header>
             <Card.Body>
               {/* <Card.Title> Staff Count </Card.Title> */}
@@ -91,7 +89,6 @@ export default function Stats() {
                       },
                     ],
                   }}
-                 
                   style={{
                     backgroundColor: `${darkModeOn ? "rgb(33,37,41)" : ""}`,
                     color: `${darkModeOn ? "white" : "black"}`,
@@ -106,9 +103,15 @@ export default function Stats() {
                     plugins: {
                       legend: {
                         display: false,
-                        position: "right"
-                      }
-                    }
+                        position: "right",
+                      },
+                    },
+                    scales: {
+                      y: {
+                        min: 0,
+                        max: 200,
+                      },
+                    },
                   }}
                 ></Line>
               </Card.Text>
@@ -126,7 +129,10 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-            <Card.Title> Staff <BsPeople/></Card.Title>  
+              <Card.Title>
+                {" "}
+                Staff <BsPeople />
+              </Card.Title>
             </Card.Header>
             <Card.Body>
               <Card.Title> Staff Count </Card.Title>
@@ -148,10 +154,13 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              <Card.Title> Orders <BsClipboardCheck/> </Card.Title>
+              <Card.Title>
+                {" "}
+                Orders <BsClipboardCheck />{" "}
+              </Card.Title>
             </Card.Header>
             <Card.Body>
-              <Card.Title> OrdersCount  </Card.Title>
+              <Card.Title> OrdersCount </Card.Title>
               <Card.Text>
                 You have had {cardsInfo.orders} number of orders to this day in
                 this year.
@@ -172,7 +181,10 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              <Card.Title> Orders <BsClipboardCheck/> </Card.Title>
+              <Card.Title>
+                {" "}
+                Orders <BsClipboardCheck />{" "}
+              </Card.Title>
             </Card.Header>
             <Card.Body>
               <Card.Title>Orders Value </Card.Title>
@@ -198,7 +210,10 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-               <Card.Title> Product <CgPill/></Card.Title>
+              <Card.Title>
+                {" "}
+                Product <CgPill />
+              </Card.Title>
             </Card.Header>
             <Card.Body>
               <Card.Title> Best Seller</Card.Title>

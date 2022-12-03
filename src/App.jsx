@@ -18,7 +18,7 @@ const colorTheme = {
     chart: "#19f02f",
   },
   light: {
-    gradient: "linear-gradient(to right, mediumaquamarine, paleturquoise)",
+    gradient: "linear-gradient(to right, rgba(101,204,170, 0.6), paleturquoise)",
     font: "black",
     header: "black",
     chart: "#B6E2D3",

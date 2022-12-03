@@ -10,7 +10,7 @@ import logo from "../imgs/logo.png";
 export function NavBar() {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { darkModeOn, setDarkModeOn } = useContext(AppContext);
+  const { darkModeOn, setDarkModeOn, colorTheme } = useContext(AppContext);
 
   return (
     <Navbar
@@ -23,7 +23,7 @@ export function NavBar() {
       style={{
         background: darkModeOn
           ? "radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%)"
-          : "linear-gradient(to right, rgba(182, 244, 146, 0.5), rgba(51, 139, 147, 0.3))",
+          : colorTheme.light.gradient,
       }}
     >
       <Container className="me-auto ms-auto">
@@ -57,7 +57,7 @@ export function NavBar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <Form className="me-4">
+      <Form className="me-4 ms-auto">
         <Form.Switch
           id="custom-switch"
           label={darkModeOn ? "🌜" : "🌞"}
