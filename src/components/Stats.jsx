@@ -92,7 +92,7 @@ export default function Stats() {
                   }}
                  
                   style={{
-                    backgroundColor: `${darkModeOn ? "#333333" : ""}`,
+                    backgroundColor: `${darkModeOn ? "rgb(33,37,41)" : ""}`,
                     color: `${darkModeOn ? "white" : "black"}`,
                     // maxHeight: "60vh",
                   }}
