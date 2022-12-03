@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -7,11 +7,33 @@ import { AppContext } from "../App";
 import { cardsInfo } from "../data/helpers";
 //For charts
 import { Line } from "react-chartjs-2";
-import { stockGenerator } from "../data/helpers";
+import { stockGenerator2 } from "../data/helpers";
 import { elements } from "chart.js";
+//Icons
+import {BiLineChart} from "react-icons/bi"
+import {CgPill} from "react-icons/cg"
+import {BsClipboardCheck, BsPeople} from "react-icons/bs"
 
 export default function Stats() {
   const { darkModeOn, colorTheme } = useContext(AppContext);
+  const [stockData, setStockData] = useState([]);
+
+  let arr = [];
+
+
+  useEffect(() => {
+    let timer = setInterval(() => {
+      let randomNum = Math.floor(Math.random() * 100) + 30;
+      if (arr.length > 9) {
+        arr.shift();
+      } else {
+        arr = [...arr, randomNum];
+        setStockData(arr);
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const cardStyle = {
     background: darkModeOn
@@ -42,7 +64,9 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              Staff
+             <Card.Title>
+             Stock <BiLineChart></BiLineChart>  
+               </Card.Title> 
             </Card.Header>
             <Card.Body>
               {/* <Card.Title> Staff Count </Card.Title> */}
@@ -50,25 +74,23 @@ export default function Stats() {
                 <Line
                   datasetIdKey="id"
                   data={{
-                    labels: Array(8).fill(""),
+                    labels: Array(10).fill(""),
                     datasets: [
                       {
                         id: 1,
-                        label: "Pieces Sold",
-                        data: stockGenerator(8),
+                        label: "Value in USD",
+                        data: stockData,
                         backgroundColor: darkModeOn
                           ? colorTheme.dark.chart
                           : colorTheme.light.chart,
-                          borderColor: darkModeOn
+                        borderColor: darkModeOn
                           ? colorTheme.dark.chart
                           : colorTheme.light.chart,
-                          borderWidth: 3,
-                          
-                          // borderCapStyle: "round",
-                          // fill: true
+                        borderWidth: 2,
                       },
                     ],
                   }}
+                 
                   style={{
                     backgroundColor: `${darkModeOn ? "#333333" : ""}`,
                     color: `${darkModeOn ? "white" : "black"}`,
@@ -77,10 +99,16 @@ export default function Stats() {
                   options={{
                     elements: {
                       line: {
-                        tension: 0.5
+                        tension: 0.5,
+                      },
+                    },
+                    plugins: {
+                      legend: {
+                        display: false,
+                        position: "right"
                       }
-                    }}
-                  }
+                    }
+                  }}
                 ></Line>
               </Card.Text>
             </Card.Body>
@@ -97,7 +125,7 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              Staff
+            <Card.Title> Staff <BsPeople/></Card.Title>  
             </Card.Header>
             <Card.Body>
               <Card.Title> Staff Count </Card.Title>
@@ -119,10 +147,10 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              Orders
+              <Card.Title> Orders <BsClipboardCheck/> </Card.Title>
             </Card.Header>
             <Card.Body>
-              <Card.Title> OrdersCount </Card.Title>
+              <Card.Title> OrdersCount  </Card.Title>
               <Card.Text>
                 You have had {cardsInfo.orders} number of orders to this day in
                 this year.
@@ -143,7 +171,7 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              Orders
+              <Card.Title> Orders <BsClipboardCheck/> </Card.Title>
             </Card.Header>
             <Card.Body>
               <Card.Title>Orders Value </Card.Title>
@@ -169,7 +197,7 @@ export default function Stats() {
                 color: cardStyle.colorHeader,
               }}
             >
-              Product
+               <Card.Title> Product <CgPill/></Card.Title>
             </Card.Header>
             <Card.Body>
               <Card.Title> Best Seller</Card.Title>

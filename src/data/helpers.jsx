@@ -42,9 +42,7 @@ export const MONTHS = [
   "Dez",
 ];
 
-const randomNumberGenerator = () => {
-  return Math.floor(Math.random() * 11);
-};
+
 
 export function stockGenerator(num) {
   return Array.from(
@@ -53,4 +51,15 @@ export function stockGenerator(num) {
   );
 }
 
-console.log(stockGenerator(10));
+export function stockGenerator2() {
+    let arr = Array.from({length: 10}, () => Math.floor(Math.random() * 101) + 30)
+    setInterval(() => {
+        let randomNum = Math.floor(Math.random() * 101) + 30
+        arr.push(randomNum)
+        arr.shift()
+    
+    }, 1000);
+    return arr
+}
+
+// console.log(stockGenerator2());
