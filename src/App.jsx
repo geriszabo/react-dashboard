@@ -34,7 +34,7 @@ function App() {
     <div className={`bg-${darkModeOn ? "dark" : "light"}`}>
       <AppContext.Provider value={{ darkModeOn, setDarkModeOn, colorTheme }}>
         <NavBar></NavBar>
-        <Container className="vh-100">
+        <Container className="h-100">
           <Routes>
             <Route
               path="/barchart"
