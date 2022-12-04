@@ -3,7 +3,7 @@ import TableRevenue from "../components/TableRevenue";
 import TableSales from "../components/TableSales";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
-import { DropdownButton } from "react-bootstrap";
+import { DropdownButton, Container } from "react-bootstrap";
 import App, { AppContext } from "../App";
 
 export function Table() {
@@ -12,7 +12,7 @@ export function Table() {
   const {darkModeOn} = useContext(AppContext)
 
   return (
-    <div className={darkModeOn ? "text-light" : "text-dark"}>
+    <Container className={ `vh-100 ${darkModeOn ? "text-light" : "text-dark"}`}>
       <DropdownButton
         as={ButtonGroup}
         size="sm"
@@ -28,6 +28,6 @@ export function Table() {
       </DropdownButton>
       {showRevenue ? <h4>Yearly Revenue</h4> : <h4>Yearly Items Sold</h4>}
       {showRevenue ? <TableRevenue></TableRevenue> : <TableSales></TableSales>}
-    </div>
+    </Container>
   );
 }
