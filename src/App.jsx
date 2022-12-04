@@ -31,10 +31,10 @@ function App() {
   const [darkModeOn, setDarkModeOn] = useState(false);
 
   return (
-    <div className={`bg-${darkModeOn ? "dark" : "light"}`}>
+    <div id="outer" className={` h-100 bg-${darkModeOn ? "dark" : "light"}`}>
       <AppContext.Provider value={{ darkModeOn, setDarkModeOn, colorTheme }}>
         <NavBar></NavBar>
-        <Container className="vh-100">
+       
           <Routes>
             <Route
               path="/barchart"
@@ -43,7 +43,7 @@ function App() {
             <Route path="/table" element={<Table></Table>}></Route>
             <Route path="/" element={<Home></Home>}></Route>
           </Routes>
-        </Container>
+       
       </AppContext.Provider>
     </div>
   );

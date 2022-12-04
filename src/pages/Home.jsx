@@ -4,9 +4,9 @@ import { Container } from 'react-bootstrap'
 
 export function Home() {
   return (
-    <Container className='h-100'>
+    <div className='vh-100'>
       <Stats></Stats>
-    </Container>
+    </div>
   )
 }
 

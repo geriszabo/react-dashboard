@@ -44,7 +44,7 @@ export function Diagram() {
 
 
   return (
-    <div>
+    <>
       <DropdownButton
         as={ButtonGroup}
         size="sm"
@@ -98,6 +98,6 @@ export function Diagram() {
           maxHeight: "60vh",
         }}
       ></Bar>
-    </div>
+    </>
   );
 }
