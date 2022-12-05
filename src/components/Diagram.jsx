@@ -52,11 +52,13 @@ export function Diagram() {
     <>
       <DropdownButton
         as={ButtonGroup}
+        variant="custom"
         size="sm"
         title="Filter By"
-        className="float-end"
+        className={`float-end ${darkModeOn ? "dark-bg" : "light-bg"}`}
         autoClose={true}
         onClick={() => setTimeout(() => inputRef.current.focus(), 10)}
+        style={{background: `${darkModeOn ? "#19f02f" : "#B6E2D3"}`}}
       >
         <Dropdown.Item
          style={{width: "20rem"}}>

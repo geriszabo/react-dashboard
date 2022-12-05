@@ -2,3 +2,20 @@
   max-height: 20rem;
   overflow-y: auto;
 }
+
+.form-check-input:checked {
+  background-color: #19f02f;
+  border-color: #98e063;
+}
+
+.dark-bg {
+  background-color: linear-gradient(0.1turn, #26ab2f, #98e063);
+}
+
+.light-bg {
+  background-color: linear-gradient(
+    to right,
+    rgba(101, 204, 170, 0.6),
+    paleturquoise
+  );
+}
