@@ -14,10 +14,12 @@ export function Table() {
   return (
     <Container className={ `vh-100 ${darkModeOn ? "text-light" : "text-dark"}`}>
       <DropdownButton
+      variant="custom"
         as={ButtonGroup}
         size="sm"
         title="Filter By"
         className="mb-3 float-end"
+        style={{background: `${darkModeOn ? "#19f02f" : "#B6E2D3"}`}}
       >
         <Dropdown.Item eventKey="1" onClick={() => setShowRevenue(true)}>
           Revenue
