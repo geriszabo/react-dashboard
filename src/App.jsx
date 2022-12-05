@@ -18,14 +18,13 @@ const colorTheme = {
     chart: "#19f02f",
   },
   light: {
-    gradient: "linear-gradient(to right, rgba(101,204,170, 0.6), paleturquoise)",
+    gradient:
+      "linear-gradient(to right, rgba(101,204,170, 0.6), paleturquoise)",
     font: "black",
     header: "black",
     chart: "#B6E2D3",
   },
 };
-
-
 
 function App() {
   const [darkModeOn, setDarkModeOn] = useState(false);
@@ -34,16 +33,14 @@ function App() {
     <div id="outer" className={` h-100 bg-${darkModeOn ? "dark" : "light"}`}>
       <AppContext.Provider value={{ darkModeOn, setDarkModeOn, colorTheme }}>
         <NavBar></NavBar>
-       
-          <Routes>
-            <Route
-              path="/barchart"
-              element={<BarChart dataSum={dataSum}></BarChart>}
-            ></Route>
-            <Route path="/table" element={<Table></Table>}></Route>
-            <Route path="/" element={<Home></Home>}></Route>
-          </Routes>
-       
+        <Routes>
+          <Route
+            path="/barchart"
+            element={<BarChart dataSum={dataSum}></BarChart>}
+          ></Route>
+          <Route path="/table" element={<Table></Table>}></Route>
+          <Route path="/" element={<Home></Home>}></Route>
+        </Routes>
       </AppContext.Provider>
     </div>
   );

@@ -46,7 +46,7 @@ export default function Stats() {
       
       className={darkModeOn ? "bg-dark" : "bg-light"}
       style={{
-        color: darkModeOn ? colorTheme.dark.font : colorTheme.light.font,
+        color: darkModeOn ? colorTheme.dark.font : colorTheme.light.font, maxWidth: "1200px", marginLeft: "auto", marginRight: "auto"
       }}
     >
       <Row className="d-flex justify-content-around">

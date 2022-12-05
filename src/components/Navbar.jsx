@@ -26,44 +26,50 @@ export function NavBar() {
           : colorTheme.light.gradient,
       }}
     >
-      <Container className="me-auto ms-auto">
-        <img
-          src={logo}
-          maxwidth="10rem"
-          className="d-inline-block align-top"
-          alt="Awesomepharma logo"
-          style={{
-            filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}`,
-          }}
-        />
+    
+      <Container
+        id="mainContainer"
+        style={{ maxWidth: "1200px" }}
+        className="d-flex justify-content-center"
+      >
+          <img
+        src={logo}
+ 
+        className="d-inline-block align-top px-5 me-auto"
+        alt="Awesomepharma logo"
+        style={{
+          filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}`,
+        }}
+      />
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           onClick={() => setIsExpanded((prev) => !prev)}
+          className="ms-auto"
         />
         <Navbar.Collapse
-          className="text-center"
-          id="basic-navbar-nav d-flex justify-content-center"
+          className="text-center ms-auto"
+          id="basic-navbar-nav"
         >
-          <Nav className="me-auto ms-auto">
+          <Nav className="me-auto ">
             <Nav.Link as={NavLink} to="/">
-              <h5 className="me-3 ms-3">Home</h5>
+              <h5 className="me-3 ms-3 px-3">Home</h5>
             </Nav.Link>
             <Nav.Link as={NavLink} to="/barchart">
-              <h5 className="me-3 ms-3">Chart View</h5>
+              <h5 className="me-3 ms-3 px-3">Chart View</h5>
             </Nav.Link>
             <Nav.Link as={NavLink} to="/table">
-              <h5 className="me-3 ms-3">Table View</h5>
+              <h5 className="me-3 ms-3 px-3">Table View</h5>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <Form className="me-4 ms-auto">
-        <Form.Switch
-          id="custom-switch"
-          label={darkModeOn ? "🌜" : "🌞"}
-          onClick={() => setDarkModeOn((prev) => !prev)}
-        />
-      </Form>
+      <Form.Switch
+        className="px-5 ms-auto"
+        id="custom-switch"
+        label={darkModeOn ? "🌜" : "🌞"}
+        onClick={() => setDarkModeOn((prev) => !prev)}
+        style={{width: "2rem"}}
+      />
     </Navbar>
   );
 }
