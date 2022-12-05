@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { dataSum } from "../data/dataSum";
@@ -8,15 +8,21 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
 import { AppContext } from "../App";
 import { MONTHS } from "../data/helpers";
-
-
+import Form from "react-bootstrap/Form";
 
 export function Diagram() {
-  const [customerFilter, setCustomerFilter] = useState("All");
-
   const { darkModeOn, colorTheme } = useContext(AppContext);
 
+  const [customerFilter, setCustomerFilter] = useState("All");
+  const [filteredOrders, setFilteredOrders] = useState(
+    dataSum.map((e) => e.account)
+  );
+  const [dropdownClose, setDropDownClose] = useState(true);
+
+  const inputRef = useRef();
+
   let monthlySales;
+
 
   if (customerFilter !== "All") {
     monthlySales = dataSum
@@ -42,7 +48,6 @@ export function Diagram() {
     }, {});
   }
 
-
   return (
     <>
       <DropdownButton
@@ -50,14 +55,53 @@ export function Diagram() {
         size="sm"
         title="Filter By"
         className="float-end"
+        autoClose={true}
+        onClick={() => setTimeout(() => inputRef.current.focus(), 10)}
       >
-        <Dropdown.Item onClick={() => setCustomerFilter("All")}>
+        <Dropdown.Item>
+          <Form.Control
+            ref={inputRef}
+            autoFocus
+            className="mx-3 my-2 w-auto "
+            placeholder="Type to filter..."
+            onChange={(e) => {
+              setFilteredOrders(
+                new Set(
+                  dataSum
+                    .filter((order) =>
+                      order.account
+                        .toLowerCase()
+                        .includes(e.target.value.toLowerCase())
+                    )
+                    .map((order) => order.account)
+                )
+              );
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          />
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={() => {
+            setCustomerFilter("All"),
+              (inputRef.current.value = ""),
+              setFilteredOrders(dataSum.map((e) => e.account));
+          }}
+        >
           All
         </Dropdown.Item>
-        {Array.from(new Set(dataSum.map((e) => e.account)))
+        {Array.from(new Set(filteredOrders))
+          .map((e) => e)
           .sort()
           .map((e, i) => (
-            <Dropdown.Item key={i} onClick={() => setCustomerFilter(e)}>
+            <Dropdown.Item
+              key={i}
+              onClick={() => {
+                setCustomerFilter(e), (inputRef.current.value = "");
+                setFilteredOrders(dataSum.map((e) => e.account));
+              }}
+            >
               {e}
             </Dropdown.Item>
           ))}
@@ -74,7 +118,8 @@ export function Diagram() {
             {
               id: 1,
               label: "Pieces Sold",
-              data: Object.values({  1: 0,
+              data: Object.values({
+                1: 0,
                 2: 0,
                 3: 0,
                 4: 0,
@@ -85,7 +130,9 @@ export function Diagram() {
                 9: 0,
                 10: 0,
                 11: 0,
-                12: 0, ...monthlySales}),
+                12: 0,
+                ...monthlySales,
+              }),
               backgroundColor: darkModeOn
                 ? colorTheme.dark.chart
                 : colorTheme.light.chart,
