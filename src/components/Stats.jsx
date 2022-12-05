@@ -66,7 +66,7 @@ export default function Stats() {
               </Card.Title>
             </Card.Header>
             <Card.Body>
-              {/* <Card.Title> Staff Count </Card.Title> */}
+            
               <Card.Text>
                 <Line
                   datasetIdKey="id"
@@ -166,8 +166,7 @@ export default function Stats() {
             </Card.Body>
           </Card>
         </Col>
-      </Row>
-      <Row className="d-flex justify-content-around">
+     
         <Col className="d-flex justify-content-center mb-5">
           <Card
             style={{ width: "18rem", height: "12rem" }}

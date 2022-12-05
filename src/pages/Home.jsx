@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 
 export function Home() {
   return (
-    <div className="vh-100 p-5">
+    <div className="vh-100">
       <Stats></Stats>
     </div>
   );
