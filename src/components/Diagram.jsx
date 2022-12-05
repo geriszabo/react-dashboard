@@ -17,7 +17,7 @@ export function Diagram() {
   const [filteredOrders, setFilteredOrders] = useState(
     dataSum.map((e) => e.account)
   );
-  const [dropdownClose, setDropDownClose] = useState(true);
+ 
 
   const inputRef = useRef();
 
@@ -58,7 +58,8 @@ export function Diagram() {
         autoClose={true}
         onClick={() => setTimeout(() => inputRef.current.focus(), 10)}
       >
-        <Dropdown.Item>
+        <Dropdown.Item
+         style={{width: "20rem"}}>
           <Form.Control
             ref={inputRef}
             autoFocus
@@ -83,6 +84,7 @@ export function Diagram() {
           />
         </Dropdown.Item>
         <Dropdown.Item
+        style={{width: "20rem"}}
           onClick={() => {
             setCustomerFilter("All"),
               (inputRef.current.value = ""),
@@ -96,6 +98,7 @@ export function Diagram() {
           .sort()
           .map((e, i) => (
             <Dropdown.Item
+            style={{width: "20rem"}}
               key={i}
               onClick={() => {
                 setCustomerFilter(e), (inputRef.current.value = "");
