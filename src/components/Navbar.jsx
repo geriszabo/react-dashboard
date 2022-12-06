@@ -27,15 +27,15 @@ export function NavBar() {
           : colorTheme.light.gradient,
       }}
     >
-    
       <Container
         id="mainContainer"
         style={{ maxWidth: "1200px" }}
         className="d-flex justify-content-center"
       >
-          <Nav.Link as={NavLink} to="/">
+        <Nav.Link as={NavLink} to="/">
           <motion.img
-          whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 1.1 }}
             src={logo}
             className="d-inline-block align-top pr-5 ms-auto"
             alt="Awesomepharma logo"
@@ -52,33 +52,43 @@ export function NavBar() {
         />
         <Navbar.Collapse className="text-center me-auto" id="basic-navbar-nav">
           <Nav className="me-auto ms-auto d-flex justify-content-center align-items-center">
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}>
+            <motion.div
+              initial={{ filter: "none" }}
+              whileHover={{ scale: 1.2, filter: "drop-shadow(0 0 7px white)" }}
+              whileTap={{ scale: 1.1 }}
+            >
               <Nav.Link as={NavLink} to="/">
                 <h5 className="me-3 ms-3 px-3">Home</h5>
               </Nav.Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}>
-
-            <Nav.Link as={NavLink} to="/barchart">
-              <h5 className="me-3 ms-3 px-3">Chart View</h5>
-            </Nav.Link>
+            <motion.div
+              initial={{ filter: "none" }}
+              whileHover={{ scale: 1.2, filter: "drop-shadow(0 0 7px white)" }}
+              whileTap={{ scale: 1.1 }}
+            >
+              <Nav.Link as={NavLink} to="/barchart">
+                <h5 className="me-3 ms-3 px-3">Chart View</h5>
+              </Nav.Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}>
-            <Nav.Link as={NavLink} to="/table">
-              <h5 className="me-3 ms-3 px-3">Table View</h5>
-            </Nav.Link>
+            <motion.div
+              initial={{ filter: "none" }}
+              whileHover={{ scale: 1.2, filter: "drop-shadow(0 0 7px white)" }}
+              whileTap={{ scale: 1.1 }}
+            >
+              <Nav.Link as={NavLink} to="/table">
+                <h5 className="me-3 ms-3 px-3">Table View</h5>
+              </Nav.Link>
             </motion.div>
           </Nav>
-            <Form.Switch
-        className="px-5 ms-auto"
-        id="custom-switch"
-        label={darkModeOn ? "🌜" : "🌞"}
-        onClick={() => setDarkModeOn((prev) => !prev)}
-        style={{ width: "2rem" }}
-      />
+          <Form.Switch
+            className="px-5 ms-auto"
+            id="custom-switch"
+            label={darkModeOn ? "🌜" : "🌞"}
+            onClick={() => setDarkModeOn((prev) => !prev)}
+            style={{ width: "2rem" }}
+          />
         </Navbar.Collapse>
-      
       </Container>
     </Navbar>
   );
