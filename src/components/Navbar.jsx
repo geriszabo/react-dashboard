@@ -27,16 +27,17 @@ export function NavBar() {
           : colorTheme.light.gradient,
       }}
     >
+    
       <Container
         id="mainContainer"
         style={{ maxWidth: "1200px" }}
         className="d-flex justify-content-center"
       >
-        <Nav.Link as={NavLink} to="/">
+          <Nav.Link as={NavLink} to="/">
           <motion.img
           whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}
             src={logo}
-            className="d-inline-block align-top px-5 me-auto"
+            className="d-inline-block align-top pr-5 ms-auto"
             alt="Awesomepharma logo"
             style={{
               filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}`,
@@ -49,8 +50,8 @@ export function NavBar() {
           onClick={() => setIsExpanded((prev) => !prev)}
           className="ms-auto mb-4"
         />
-        <Navbar.Collapse className="text-center ms-auto" id="basic-navbar-nav">
-          <Nav className="me-auto ">
+        <Navbar.Collapse className="text-center me-auto" id="basic-navbar-nav">
+          <Nav className="me-auto ms-auto d-flex justify-content-center align-items-center">
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}>
               <Nav.Link as={NavLink} to="/">
                 <h5 className="me-3 ms-3 px-3">Home</h5>
@@ -69,15 +70,16 @@ export function NavBar() {
             </Nav.Link>
             </motion.div>
           </Nav>
-        </Navbar.Collapse>
-      </Container>
-      <Form.Switch
+            <Form.Switch
         className="px-5 ms-auto"
         id="custom-switch"
         label={darkModeOn ? "🌜" : "🌞"}
         onClick={() => setDarkModeOn((prev) => !prev)}
         style={{ width: "2rem" }}
       />
+        </Navbar.Collapse>
+      
+      </Container>
     </Navbar>
   );
 }
