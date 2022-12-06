@@ -26,30 +26,27 @@ export function NavBar() {
           : colorTheme.light.gradient,
       }}
     >
-    
       <Container
         id="mainContainer"
         style={{ maxWidth: "1200px" }}
         className="d-flex justify-content-center"
       >
+        <Nav.Link as={NavLink} to="/">
           <img
-        src={logo}
- 
-        className="d-inline-block align-top px-5 me-auto"
-        alt="Awesomepharma logo"
-        style={{
-          filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}`,
-        }}
-      />
+            src={logo}
+            className="d-inline-block align-top px-5 me-auto"
+            alt="Awesomepharma logo"
+            style={{
+              filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}`, width: "80%"
+            }}
+          />
+        </Nav.Link>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           onClick={() => setIsExpanded((prev) => !prev)}
-          className="ms-auto"
+          className="ms-auto mb-4"
         />
-        <Navbar.Collapse
-          className="text-center ms-auto"
-          id="basic-navbar-nav"
-        >
+        <Navbar.Collapse className="text-center ms-auto" id="basic-navbar-nav">
           <Nav className="me-auto ">
             <Nav.Link as={NavLink} to="/">
               <h5 className="me-3 ms-3 px-3">Home</h5>
@@ -68,7 +65,7 @@ export function NavBar() {
         id="custom-switch"
         label={darkModeOn ? "🌜" : "🌞"}
         onClick={() => setDarkModeOn((prev) => !prev)}
-        style={{width: "2rem"}}
+        style={{ width: "2rem" }}
       />
     </Navbar>
   );
