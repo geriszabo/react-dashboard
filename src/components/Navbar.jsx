@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import { AppContext } from "../App";
 import logo from "../imgs/logo.png";
+import { motion } from "framer-motion";
 
 export function NavBar() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -32,12 +33,14 @@ export function NavBar() {
         className="d-flex justify-content-center"
       >
         <Nav.Link as={NavLink} to="/">
-          <img
+          <motion.img
+          whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}
             src={logo}
             className="d-inline-block align-top px-5 me-auto"
             alt="Awesomepharma logo"
             style={{
-              filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}`, width: "80%"
+              filter: `${darkModeOn ? "drop-shadow(0 0 7px white)" : "none"}`,
+              width: "80%",
             }}
           />
         </Nav.Link>
@@ -48,15 +51,23 @@ export function NavBar() {
         />
         <Navbar.Collapse className="text-center ms-auto" id="basic-navbar-nav">
           <Nav className="me-auto ">
-            <Nav.Link as={NavLink} to="/">
-              <h5 className="me-3 ms-3 px-3">Home</h5>
-            </Nav.Link>
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}>
+              <Nav.Link as={NavLink} to="/">
+                <h5 className="me-3 ms-3 px-3">Home</h5>
+              </Nav.Link>
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}>
+
             <Nav.Link as={NavLink} to="/barchart">
               <h5 className="me-3 ms-3 px-3">Chart View</h5>
             </Nav.Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{scale: 1.1}}>
             <Nav.Link as={NavLink} to="/table">
               <h5 className="me-3 ms-3 px-3">Table View</h5>
             </Nav.Link>
+            </motion.div>
           </Nav>
         </Navbar.Collapse>
       </Container>
