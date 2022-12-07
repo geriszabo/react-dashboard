@@ -27,7 +27,7 @@ const colorTheme = {
 };
 
 function App() {
-  const [darkModeOn, setDarkModeOn] = useState(false);
+  const [darkModeOn, setDarkModeOn] = useState(true);
 
   return (
     <div id="outer" className={` h-100 bg-${darkModeOn ? "dark" : "light"}`}>

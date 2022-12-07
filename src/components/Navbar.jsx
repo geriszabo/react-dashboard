@@ -82,6 +82,7 @@ export function NavBar() {
             </motion.div>
           </Nav>
           <Form.Switch
+            defaultChecked={true}
             className="px-5 ms-auto"
             id="custom-switch"
             label={darkModeOn ? "🌜" : "🌞"}
