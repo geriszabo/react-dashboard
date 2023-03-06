@@ -7,7 +7,7 @@ import { AppContext } from "../App";
 import { cardsInfo } from "../data/helpers";
 //For charts
 import { Line } from "react-chartjs-2";
-import { stockGenerator2 } from "../data/helpers";
+
 import { elements } from "chart.js";
 //Icons
 import { BiLineChart } from "react-icons/bi";

@@ -41,25 +41,3 @@ export const MONTHS = [
   "Nov",
   "Dez",
 ];
-
-
-
-export function stockGenerator(num) {
-  return Array.from(
-    { length: num },
-    () => Math.floor(Math.random() * 101) + 30
-  );
-}
-
-export function stockGenerator2() {
-    let arr = Array.from({length: 10}, () => Math.floor(Math.random() * 101) + 30)
-    setInterval(() => {
-        let randomNum = Math.floor(Math.random() * 101) + 30
-        arr.push(randomNum)
-        arr.shift()
-    
-    }, 1000);
-    return arr
-}
-
-// console.log(stockGenerator2());
